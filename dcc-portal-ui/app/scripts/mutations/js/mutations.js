@@ -42,7 +42,7 @@
   module.controller('MutationCtrl', function (HighchartsService, Page, Genes, mutation) {
     var _ctrl = this, projects;
     Page.setTitle(mutation.id);
-    Page.setPage('entity');
+    Page.setPage('mutation');
 
     _ctrl.gvOptions = { location: false, panels: false, zoom: 100 };
 

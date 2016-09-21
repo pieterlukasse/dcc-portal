@@ -581,15 +581,14 @@
         templateUrl: '/scripts/static/views/team.html',
         controller: ['Page', function (Page, gettextCatalog) {
           Page.setTitle(gettextCatalog.getString('The Team'));
-          Page.setPage('entity');
+          Page.setPage('team');
         }]
       });
 
     // All else redirect to home
     $urlRouterProvider.otherwise(function($injector, $location) {
-
       $injector.invoke(['Notify', 'Page', function(Notify, Page) {
-        Page.setPage('error');
+        Page.setPage('not-found');
         Notify.setMessage('Cannot find:' + ' ' + $location.url());
         Notify.showErrors();
       }]);

@@ -99,7 +99,7 @@ angular.module('icgc.repositories.controllers', [])
     })
    .controller('RepositoriesHomeController', function($scope, Page, gettextCatalog) {
       Page.stopWork();
-      Page.setPage('entity');
+      Page.setPage('repositories');
       Page.setTitle(gettextCatalog.getString('ICGC in the Cloud'));
    })
    .controller('RepositoriesGuideController', function($scope, Page, gettextCatalog) {
@@ -157,7 +157,7 @@ angular.module('icgc.repositories.controllers', [])
 
       function _init() {
          Page.stopWork();
-         Page.setPage('entity');
+         Page.setPage('cloud');
          /// ${repoContext} would be a noun
          Page.setTitle(_.template(gettextCatalog.getString('ICGC in the Cloud - ${repoContext} Repository'))
           ({repoContext : _capitalizeWords(_repoContext)}));

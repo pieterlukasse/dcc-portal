@@ -1,7 +1,7 @@
 <aside>
     <ul class="nav nav-pills nav-stacked" data-ng-repeat="s in DonorCtrl.donor.specimen">
         <li data-ng-class="{active:s.id==DonorSpecimenCtrl.specimen.id}">
-            <a href="" data-ng-click="DonorSpecimenCtrl.setActive(s.id)"
+            <a class="specimen-link" href="" data-ng-click="DonorSpecimenCtrl.setActive(s.id)"
                data-ng-style="s.id===DonorSpecimenCtrl.specimen.id?{color:'#FFFFFF'}:{}" style="line-height:1.25rem">
                 {{ s.id }}<br>
                 <small>{{ s.type }}</small>
@@ -114,7 +114,7 @@
                     <td>{{ DonorSpecimenCtrl.specimen.levelOfCellularity }}</td>
                 </tr>
             </table>
-            <p><a data-ng-if="DonorSpecimenCtrl.specimen.digitalImageOfStainedSection | startsWith:'http'"
+            <p><a class="specimen-image-link" data-ng-if="DonorSpecimenCtrl.specimen.digitalImageOfStainedSection | startsWith:'http'"
                   data-ng-href="{{ DonorSpecimenCtrl.specimen.digitalImageOfStainedSection }}"
                   target="_blank">
                 <i style="cursor: pointer" class="icon-picture"></i><translate>Image Of Stained Section</translate>

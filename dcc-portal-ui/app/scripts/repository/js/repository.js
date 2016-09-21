@@ -53,7 +53,7 @@
     var dataReleasesRouteInfo = RouteInfoService.get ('dataReleases');
 
     Page.setTitle (dataReleasesRouteInfo.title);
-    Page.setPage ('dataReleases');
+    Page.setPage ('releases');
     // Prevent double encoding issues when reloading state on login
     _ctrl.path = $stateParams.path ? decodeURIComponent($stateParams.path) : '';
     _ctrl.slugs = [];
@@ -414,7 +414,7 @@
       gettextCatalog) {
 
     Page.setTitle(gettextCatalog.getString('Repository File'));
-    Page.setPage('externalFileEntity');
+    Page.setPage('file');
 
     var slash = '/';
     var projectMap = {};

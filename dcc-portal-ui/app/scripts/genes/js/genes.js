@@ -106,7 +106,7 @@
 
     var _ctrl = this;
     Page.setTitle(gene.id);
-    Page.setPage('entity');
+    Page.setPage('gene');
 
     _ctrl.ExternalLinks = ExternalLinks;
 

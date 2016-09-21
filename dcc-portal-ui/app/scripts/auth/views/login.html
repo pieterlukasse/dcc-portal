@@ -23,7 +23,7 @@
       <span data-ng-bind="params.user.email"></span>
       <ul class="toolbar">
         <li class="tool-item" data-ng-show="params.user.daco && params.showCollaboratoryToken" >
-          <a href=""
+          <a id="token-manager-link" href=""
             data-ng-click="openTokenManagerPopup()"
             data-tooltip="{{'Manage your ICGC access tokens' | translate}}"
             class="tool-bttn"
@@ -32,7 +32,7 @@
           </a>
         </li><!--
         --><li class="tool-item">
-          <a href="" data-ng-click="logout()" class="tool-bttn">
+          <a id="logout-link" href="" data-ng-click="logout()" class="tool-bttn">
             <i class="icon-logout"></i><translate>Logout</translate>
           </a>
         </li>
@@ -40,7 +40,7 @@
    </span>
     <ul class="toolbar" data-ng-hide="params.user.token || params.user.verifying">
         <li class="tool-item tool-item-single">
-            <a data-ng-click="openLoginPopup()" href="">
+            <a id="open-login-link" data-ng-click="openLoginPopup()" href="">
               <i class="icon-login"></i><translate>Login</translate>
            </a>
         </li>

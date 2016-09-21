@@ -6,7 +6,7 @@
 </div>
 
 <span data-ng-if="DonorCtrl.isPendingDonor">
-  <section>
+  <section id="donor-pending">
     <i class="icon-attention or icon-attention-1"></i>
     <translate>No data for this donor has been submitted directly to ICGC DCC yet.</translate>
     <translate has-markup>However, go to the
@@ -44,7 +44,7 @@
 </aside>
 <article>
 <section id="summary">
-    <div class="half">
+    <div id="summary-info" class="half">
         <h3><translate>Summary</translate></h3>
         <table class="table table-info">
             <tr>
@@ -58,7 +58,7 @@
             <tr>
                 <th><translate>Project Name</translate></th>
                 <td>
-                   <a href="/projects/{{DonorCtrl.donor.projectId}}">{{ DonorCtrl.donor.projectName }}</a>
+                   <a class="project-link" href="/projects/{{DonorCtrl.donor.projectId}}">{{ DonorCtrl.donor.projectName }}</a>
                 </td>
             </tr>
             <tr>
@@ -87,7 +87,7 @@
             </tr>
         </table>
     </div>
-    <div class="half omega">
+    <div id="available-data-types" class="half omega">
         <h3><translate>Available Data Types:</translate></h3>
         <div data-ng-if="DonorCtrl.donor.state === 'pending'" class="well">
             <translate>Only clinical data has been submitted to ICGC DCC.</translate>
@@ -144,7 +144,7 @@
         </table>
 
         <div>
-            <button class="t_button" type="button" data-ng-click="DonorCtrl.downloadDonorData()" data-ng-disabled="!DonorCtrl.downloadEnabled">
+            <button id="download-data-button" class="t_button" type="button" data-ng-click="DonorCtrl.downloadDonorData()" data-ng-disabled="!DonorCtrl.downloadEnabled">
                 <i class="icon-download"></i>
                 <span> <translate>Download Donor Data</translate></span>
             </button>
@@ -158,7 +158,7 @@
 <section id="clinical">
     <h3><translate>Clinical Data</translate>
         <small class="pull-right" style="font-size: 1.0rem" data-ng-if="DonorCtrl.donor.clinicalXML">
-            <a href="{{DonorCtrl.donor.clinicalXML}}" target="_blank"><i class="icon-external-link"></i><translate>TCGA Clinical XML</translate></a>
+            <a class="clinical-xml-link" href="{{DonorCtrl.donor.clinicalXML}}" target="_blank"><i class="icon-external-link"></i><translate>TCGA Clinical XML</translate></a>
         </small>
     </h3>
     <div class="half">
@@ -241,7 +241,7 @@
 
     <div data-ng-init="supplementalCollapsed=true">
        <span data-ng-show="DonorCtrl.hasSupplementalFiles(DonorCtrl.donor)">
-           <a href="" data-ng-click="supplementalCollapsed=!supplementalCollapsed">
+           <a class="supplemental-link" href="" data-ng-click="supplementalCollapsed=!supplementalCollapsed">
                <translate>Supplemental files</translate>:
                {{ DonorCtrl.donor.family? " " + DonorCtrl.donor.family.length + " Family, " : "" }}
                {{ DonorCtrl.donor.exposure? " " + DonorCtrl.donor.exposure.length + " Exposure, " : "" }}

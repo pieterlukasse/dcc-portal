@@ -30,7 +30,7 @@
    
    module.controller('SoftwareController', function($scope, Page, Restangular, PortalFeature, gettextCatalog) {
 	   Page.stopWork();
-     Page.setPage('entity');
+     Page.setPage('software');
      Page.setTitle(gettextCatalog.getString('Software Downloads'));
      $scope.showIcgcGet = PortalFeature.get('ICGC_GET');
      $scope.icgcGet = {

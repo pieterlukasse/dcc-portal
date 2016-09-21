@@ -19,6 +19,7 @@
     <module>dcc-portal-server</module>
     <module>dcc-portal-ui</module>
     <module>dcc-portal-pql</module>
+    <module>dcc-portal-test</module>
   </modules>
 
   <repositories>

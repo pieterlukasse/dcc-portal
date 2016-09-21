@@ -47,7 +47,7 @@
     var dataRepUrl = dataRepoRoutInfo.href;
 
     Page.setTitle(donor.id);
-    Page.setPage('entity');
+    Page.setPage('donor');
 
     _ctrl.hasSupplementalFiles = function(donor) {
       return donor.family || donor.exposure || donor.therapy;

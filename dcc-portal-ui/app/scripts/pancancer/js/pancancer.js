@@ -47,7 +47,7 @@
 
   module.controller('PancancerAcknowledgementController', function($scope, Page) {
     Page.stopWork();
-    Page.setPage('entity');
+    Page.setPage('pancancer');
     Page.setTitle('PCAWG');
   }); 
   
@@ -56,7 +56,7 @@
     function($scope, Page, PancancerService, ExternalRepoService, RouteInfoService) {
 
     Page.stopWork();
-    Page.setPage('entity');
+    Page.setPage('pancancer');
     Page.setTitle('PCAWG');
 
     $scope.dataRepoUrl = RouteInfoService.get ('dataRepositories').href;

@@ -32,7 +32,7 @@ angular.module('icgc.compounds', ['icgc.compounds.controllers', 'icgc.compounds.
 
           Page.startWork();
           Page.setTitle(gettextCatalog.getString('Compounds'));
-          Page.setPage('entity');
+          Page.setPage('compound');
           return CompoundsService.getCompoundManagerFactory($stateParams.compoundId);
         }]
       },

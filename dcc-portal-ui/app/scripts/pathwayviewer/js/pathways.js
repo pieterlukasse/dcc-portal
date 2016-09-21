@@ -112,7 +112,7 @@
 
     function _init() {
       Page.stopWork();
-      Page.setPage('entity');
+      Page.setPage('pathway');
       Page.setTitle(gettextCatalog.getString('Enrichment Analysis Pathway Viewer'));
 
       $scope.TooltipText = TooltipText;

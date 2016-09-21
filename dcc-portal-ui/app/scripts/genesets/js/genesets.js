@@ -54,7 +54,7 @@
       geneSetFilter = {}; // Build adv query based on type
 
       Page.setTitle(geneSet.id);
-      Page.setPage('entity');
+      Page.setPage('geneset');
 
       _ctrl.geneSet = geneSet;
       _ctrl.geneSet.queryType = FiltersUtil.getGeneSetQueryType(_ctrl.geneSet.type);

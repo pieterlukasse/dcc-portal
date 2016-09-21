@@ -417,7 +417,7 @@
     var _ctrl = this;
 
     Page.setTitle(project.id);
-    Page.setPage('entity');
+    Page.setPage('project');
     
     var loadState = new LoadState();
 
