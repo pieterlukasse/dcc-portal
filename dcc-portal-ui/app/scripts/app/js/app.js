@@ -579,10 +579,10 @@
       'team', {
         url: '/team',
         templateUrl: '/scripts/static/views/team.html',
-        controller: ['Page', function (Page, gettextCatalog) {
+        controller: function (Page, gettextCatalog) {
           Page.setTitle(gettextCatalog.getString('The Team'));
           Page.setPage('team');
-        }]
+        }
       });
 
     // All else redirect to home

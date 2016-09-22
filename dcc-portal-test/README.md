@@ -1,7 +1,7 @@
 ICGC DCC - Portal Test
 ===
 
-Portal testing module
+Portal acceptance testing module based on FluentLenium.
 
 Development
 ---

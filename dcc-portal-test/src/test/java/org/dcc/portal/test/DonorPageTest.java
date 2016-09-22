@@ -36,13 +36,10 @@ public class DonorPageTest extends BaseTest {
   @Test
   public void testDonorPage() {
     val do1 = donorPage.go("DO1");
-
-    goTo("/team");
+    assertThat(do1).isAt();
     assertThat(driver).hasNoErrors();
 
-    assertThat(do1).isAt();
-
-    assertThat(do1.summary()).isNotDisplayed();
+    assertThat(do1.summary()).isDisplayed();
     assertThat(do1.specimen()).isDisplayed();
     assertThat(do1.clinical()).isDisplayed();
   }
