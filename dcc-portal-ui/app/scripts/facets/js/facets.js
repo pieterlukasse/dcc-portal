@@ -33,6 +33,15 @@
       SINGLE: 'one-facet',
       ALL: 'all-facets'
     }
+  })
+  .service('FacetsService', function (Restangular) {
+    this.fetchFacets = () => Restangular
+      .one('donors?facetsOnly=true&include=facets')
+      .get()
+      .then(response => _.map(response.plain().facets, (facet, id) => ({
+        id,
+        ...facet,
+      })));
   });
 
 })();
