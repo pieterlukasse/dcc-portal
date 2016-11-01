@@ -121,6 +121,7 @@
     "ng-annotate-loader": "0.2.0",
     "restangular": "1.5.2",
     "singularitygs": "1.7.0",
+    "ui-select": "0.19.6",
     "urijs": "1.16.1",
     "x2js": "3.0.0"
   }
