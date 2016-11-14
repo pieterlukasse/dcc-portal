@@ -22,9 +22,9 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.elasticsearch.action.search.MultiSearchResponse;
 import org.elasticsearch.common.lang3.tuple.Pair;
 import org.elasticsearch.search.SearchHit;
+import org.icgc.dcc.portal.server.model.EntityType;
 import org.icgc.dcc.portal.server.model.Gene;
 import org.icgc.dcc.portal.server.model.Genes;
-import org.icgc.dcc.portal.server.model.EntityType;
 import org.icgc.dcc.portal.server.model.Pagination;
 import org.icgc.dcc.portal.server.model.Query;
 import org.icgc.dcc.portal.server.pql.convert.AggregationToFacetConverter;
@@ -253,8 +253,8 @@ public class GeneService {
     return new Gene(geneRepository.findOne(geneId, query));
   }
 
-  public List<String> getAffectedTranscripts(String geneId) {
-    return geneRepository.getAffectedTranscripts(geneId);
+  public List<String> getAffectedTranscripts(String geneId, Query query) {
+    return geneRepository.getAffectedTranscripts(geneId, query);
   }
 
   public Map<String, String> getEnsemblIdGeneSymbolMap() {

@@ -457,8 +457,11 @@ public class GeneResource extends Resource {
   @Path("/{" + API_GENE_PARAM + "}/affected-transcripts")
   @GET
   public Map<String, List<String>> getAffectedTranscripts(
-      @ApiParam(value = API_GENE_VALUE, required = true) @PathParam(API_GENE_PARAM) String geneId) {
-    return ImmutableMap.<String, List<String>> of(geneId, geneService.getAffectedTranscripts(geneId));
+      @ApiParam(value = API_GENE_VALUE, required = true) @PathParam(API_GENE_PARAM) String geneId,
+      @ApiParam(value = API_FILTER_VALUE) @QueryParam(API_FILTER_PARAM) @DefaultValue(DEFAULT_FILTERS) FiltersParam filtersParam) {
+    val filters = filtersParam.get();
+    val query = query(filters);
+    return ImmutableMap.<String, List<String>> of(geneId, geneService.getAffectedTranscripts(geneId, query));
   }
 
 }

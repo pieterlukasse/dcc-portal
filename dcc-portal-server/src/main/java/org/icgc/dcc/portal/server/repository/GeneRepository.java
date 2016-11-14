@@ -299,7 +299,7 @@ public class GeneRepository implements Repository {
    * @param geneId
    * @return unique list of transcript ids
    */
-  public List<String> getAffectedTranscripts(String geneId) {
+  public List<String> getAffectedTranscripts(String geneId, Query query) {
     val ssmConsequence = "donor.ssm.consequence";
     val transcriptField = ssmConsequence + ".transcript_affected";
     val geneIdField = ssmConsequence + "._gene_id";
@@ -307,19 +307,22 @@ public class GeneRepository implements Repository {
     val filteredAgg = "filtered";
     val aggName = "affectedTranscript";
 
-    val response = searchGenes(CENTRIC_TYPE.getId(), "getAffectedTranscripts", request -> {
-      request
-          .setTypes(CENTRIC_TYPE.getId())
-          .setSearchType(QUERY_THEN_FETCH)
-          .setSize(0)
-          .addAggregation(nested(rootAgg)
-              .path(ssmConsequence)
-              .subAggregation(filter(filteredAgg)
-                  .filter(termFilter(geneIdField, geneId))
-                  .subAggregation(terms(aggName)
-                      .size(MAX_FACET_TERM_COUNT)
-                      .field(transcriptField))));
-    });
+    val pql = converter.convert(query, GENE_CENTRIC);
+    val searchRequest = queryEngine.execute(pql, GENE_CENTRIC).getRequestBuilder();
+
+    searchRequest.setTypes(CENTRIC_TYPE.getId())
+        .setSearchType(QUERY_THEN_FETCH)
+        .setSize(0)
+        .addAggregation(nested(rootAgg)
+            .path(ssmConsequence)
+            .subAggregation(filter(filteredAgg)
+                .filter(termFilter(geneIdField, geneId))
+                .subAggregation(terms(aggName)
+                    .size(MAX_FACET_TERM_COUNT)
+                    .field(transcriptField))));
+
+    log.debug("getAffectedTranscripts; ES query is: '{}'", searchRequest);
+    val response = searchRequest.get();
 
     val nestedAggs = (Nested) response.getAggregations().get(rootAgg);
     val filteredAggs = (Filter) nestedAggs.getAggregations().get(filteredAgg);
